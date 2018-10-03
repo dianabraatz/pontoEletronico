@@ -8,28 +8,29 @@ namespace Coprel.Model
 {
     class Funcionario
     {
-        int numeroRegistro;
-        String senha;
+                int numeroRegistro;
+                String senha;
 
-        public int getNumeroRegistro()
-        {
-            return numeroRegistro;
-        }
+                public int GetNumeroRegistro()
+                {
+                    return numeroRegistro;
+                }
 
-        public void setNumeroRegistro(int numeroRegistro)
-        {
-            this.numeroRegistro = numeroRegistro;
-        }
+                public void SetNumeroRegistro(int numeroRegistro)
+                {
+                    this.numeroRegistro = numeroRegistro;
+                }
 
-        public String getSenha()
-        {
-            return senha;
-        }
+                public string GetSenha()
+                {
+                    return senha;
+                }
 
-        public void setSenha(String senha)
-        {
-            this.senha = senha;
-        }
+                public void SetSenha(string senha)
+                {
+                    this.senha = senha;
+                }
+                
 
     }
 }

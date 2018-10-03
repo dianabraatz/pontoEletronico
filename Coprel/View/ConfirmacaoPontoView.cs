@@ -11,13 +11,12 @@ using Coprel.Controller;
 
 namespace Coprel.View
 {
-    public partial class PontoFuncionarioView : Form
+    public partial class ConfirmacaoPontoView : Form
     {
-        public PontoFuncionarioView(int numRegistro)
+        public ConfirmacaoPontoView(int numRegistro)
         {
             InitializeComponent();
-            //PontoController.ExecutaPonto(numRegistro); 
-            MessageBox.Show(""+numRegistro);
+            PontoController.ConfirmaPonto(numRegistro, this);
         }
 
         private void PontoFuncionarioView_Load(object sender, EventArgs e)
@@ -27,6 +26,21 @@ namespace Coprel.View
 
         private void label6_Click(object sender, EventArgs e)
         {
+        }
+
+        private void hora_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void data_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numRegistro_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Coprel.View;
+using Coprel.Model;
 
 namespace Coprel.Controller
 {
@@ -23,9 +24,7 @@ namespace Coprel.Controller
 
             if (result)
             {
-               // MessageBox.Show("Login confirmado");
                 VerificaNivelAcesso(numRegistro, senha);
-
             }
             else
                 MessageBox.Show("Erro ao efetuar login");
@@ -38,7 +37,7 @@ namespace Coprel.Controller
 
             if (nivelAcesso == 1)
             {
-                PontoAdministradorView telaAdmin = new PontoAdministradorView();
+                PontoAdministradorView telaAdmin = new PontoAdministradorView(numRegistro);
                 telaAdmin.Show();
             }
             else

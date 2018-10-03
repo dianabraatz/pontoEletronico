@@ -11,7 +11,7 @@ namespace Coprel.DAO
     class FuncionarioDAO
     {
 
-        static string strConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Charlan\source\repos\vs2017-coprel\bdponto.mdf';Integrated Security=True;Connect Timeout=30";
+        static string strConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Charlan\Desktop\bdponto.mdf';Integrated Security=True;Connect Timeout=30";
 
         public Boolean verificaLogin(int numRegistro, string senha)
         {

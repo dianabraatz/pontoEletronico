@@ -15,5 +15,10 @@ namespace Coprel
         {
             FuncionarioController.VerificaUsuario(this);
         }
+
+        private void LoginView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Coprel.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace Coprel.View
 {
     public partial class PontoAdministradorView : Form
     {
-        public PontoAdministradorView()
+        int numRegistro;
+
+        public PontoAdministradorView(int registro)
         {
             InitializeComponent();
+             numRegistro = registro;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PontoController.ExecutaPonto(numRegistro);
         }
     }
 }
