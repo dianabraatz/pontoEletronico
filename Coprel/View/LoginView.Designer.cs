@@ -104,7 +104,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tfNumeroRegistro);
             this.Name = "LoginView";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ponto Eletrônico";
             this.Load += new System.EventHandler(this.LoginView_Load);
             this.ResumeLayout(false);

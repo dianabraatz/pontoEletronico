@@ -52,6 +52,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Tela de Administrador";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -73,6 +74,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "PontoAdministradorView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PontoAdministradorView";
             this.ResumeLayout(false);
             this.PerformLayout();

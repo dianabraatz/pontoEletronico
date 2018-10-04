@@ -52,6 +52,12 @@
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Ponto.cs" />
+    <Compile Include="View\HomeAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\HomeAdministrador.Designer.cs">
+      <DependentUpon>HomeAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PontoAdministradorView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="View\ConfirmacaoPontoView.Designer.cs">
       <DependentUpon>ConfirmacaoPontoView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\HomeAdministrador.resx">
+      <DependentUpon>HomeAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +92,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\PontoAdministradorView.resx">
       <DependentUpon>PontoAdministradorView.cs</DependentUpon>
@@ -103,6 +113,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\users-group%282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,11 +51,17 @@ namespace Coprel.Controller
                     break;
             }
 
-            if(resultado == 1)
+            if (resultado == 1)
             {
                 ConfirmacaoPontoView tela = new ConfirmacaoPontoView(numRegistro);
                 tela.Show();
             }
+            else
+            {
+                LoginView tela = new LoginView();
+                tela.Show();
+            }
+                
 
         }
 

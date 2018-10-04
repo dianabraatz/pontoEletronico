@@ -24,6 +24,13 @@ namespace Coprel.View
         private void button2_Click(object sender, EventArgs e)
         {
             PontoController.ExecutaPonto(numRegistro);
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HomeAdministrador obj = new HomeAdministrador();
+            obj.Show();
         }
     }
 }

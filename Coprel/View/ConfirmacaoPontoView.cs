@@ -19,28 +19,11 @@ namespace Coprel.View
             PontoController.ConfirmaPonto(numRegistro, this);
         }
 
-        private void PontoFuncionarioView_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void hora_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void data_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numRegistro_Click(object sender, EventArgs e)
-        {
-
+            LoginView obj = new LoginView();
+            obj.Show();
+            this.Close();
         }
     }
 }

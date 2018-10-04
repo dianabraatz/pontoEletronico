@@ -14,6 +14,7 @@ namespace Coprel
         private void btnLogin_Click(object sender, EventArgs e)
         {
             FuncionarioController.VerificaUsuario(this);
+            this.Hide();
         }
 
         private void LoginView_Load(object sender, EventArgs e)

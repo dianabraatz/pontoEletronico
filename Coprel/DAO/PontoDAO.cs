@@ -56,7 +56,6 @@ namespace Coprel.DAO
                 }
                 else if (ponto4 == 1)
                 {
-                    MessageBox.Show("Todos os pontos diários já foram cadastrados.");
                     resultado = 5;
                 }
                 else
