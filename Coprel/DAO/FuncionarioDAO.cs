@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Coprel.Model;
 
 namespace Coprel.DAO
 {
@@ -13,7 +15,7 @@ namespace Coprel.DAO
 
         static string strConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Charlan\Desktop\bdponto.mdf';Integrated Security=True;Connect Timeout=30";
 
-        public Boolean verificaLogin(int numRegistro, string senha)
+        public Boolean verificaLogin(Funcionario f)
         {
             String sql = "SELECT * FROM funcionario WHERE numRegistro=@numRegistro AND senha=@senha;";
             bool result;
@@ -21,8 +23,8 @@ namespace Coprel.DAO
             //teste
             SqlConnection conn = new SqlConnection(strConnection);
             SqlCommand sqlcmd = new SqlCommand(sql, conn);
-            sqlcmd.Parameters.AddWithValue("@numRegistro", numRegistro);
-            sqlcmd.Parameters.AddWithValue("@senha", senha);
+            sqlcmd.Parameters.AddWithValue("@numRegistro", f.GetNumeroRegistro());
+            sqlcmd.Parameters.AddWithValue("@senha", f.GetSenha());
 
             try
             {
@@ -43,7 +45,7 @@ namespace Coprel.DAO
             return result;
         }
 
-        public int VerificaNivelAcesso(int numRegistro, string senha)
+        public int VerificaNivelAcesso(Funcionario f)
         {
             string sql = "select f.nivelAcesso FROM funcao f JOIN funcionario func ON f.codFuncao = func.codFuncao WHERE func.numRegistro = @numRegistro AND func.senha = @senha;";
             int nivelAcesso = 0;
@@ -51,8 +53,8 @@ namespace Coprel.DAO
             SqlConnection conn = new SqlConnection(strConnection);
             SqlCommand sqlcmd = new SqlCommand(sql, conn);
 
-            sqlcmd.Parameters.AddWithValue("@numRegistro", numRegistro);
-            sqlcmd.Parameters.AddWithValue("@senha", senha);
+            sqlcmd.Parameters.AddWithValue("@numRegistro", f.GetNumeroRegistro());
+            sqlcmd.Parameters.AddWithValue("@senha", f.GetSenha());
 
             try
             {
@@ -73,6 +75,98 @@ namespace Coprel.DAO
                 conn.Close();
             }
             return nivelAcesso;
+        }
+
+        public Boolean CadastraFuncionario(Funcionario f)
+        {
+            String sql = "INSERT INTO funcionario ([numRegistro], [senha], [dataNascimento], [nome], [rg], [cpf], [cnh], [dataAdmissao], [ctps], [codFuncao], [codSetor]) VALUES " +
+                                                 "(@numRegistro, @senha, @DataNascimento, @Nome, @RG, @CPF, @CNH, @DataAdmissao, @CTPS , @CodFuncao, @CodSetor)";
+            bool result;
+
+            SqlConnection conn = new SqlConnection(strConnection);
+            SqlCommand sqlcmd = new SqlCommand(sql, conn);
+            sqlcmd.Parameters.AddWithValue("@numRegistro", f.GetNumeroRegistro());
+            sqlcmd.Parameters.AddWithValue("@senha", f.GetSenha());
+            sqlcmd.Parameters.AddWithValue("@DataNascimento", f.GetDataNascimento());
+            sqlcmd.Parameters.AddWithValue("@Nome", f.GetNome());
+            sqlcmd.Parameters.AddWithValue("@RG", f.GetRG());
+            sqlcmd.Parameters.AddWithValue("@CPF", f.GetCPF());
+            sqlcmd.Parameters.AddWithValue("@CNH", f.GetCNH());
+            sqlcmd.Parameters.AddWithValue("@DataAdmissao", f.GetDataAdmissao());
+            sqlcmd.Parameters.AddWithValue("@CTPS", f.GetCTPS());
+            sqlcmd.Parameters.AddWithValue("@CodSetor", f.GetCodSetor());
+            sqlcmd.Parameters.AddWithValue("@CodFuncao", f.GetCodFuncao());
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader rows = sqlcmd.ExecuteReader();
+
+                //verifica se possui algum resultado na consulta
+                result = rows.Read();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
+
+        public static DataTable PreencheCBFuncao()
+        {
+            string sql = "SELECT codFuncao, nome FROM funcao ORDER BY nome ASC;";
+
+            SqlConnection conn = new SqlConnection(strConnection);
+            SqlCommand sqlcmd = new SqlCommand(sql, conn);
+            SqlDataReader reader;
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();
+                reader = sqlcmd.ExecuteReader();
+                dt.Load(reader);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public static DataTable PreencheCBSetor()
+        {
+            string sql = "SELECT codSetor, nome from setor ORDER BY nome ASC;";
+
+            SqlConnection conn = new SqlConnection(strConnection);
+            SqlCommand sqlcmd = new SqlCommand(sql, conn);
+            SqlDataReader reader;
+            DataTable dt = new DataTable();
+
+            try
+            {
+                conn.Open();
+                reader = sqlcmd.ExecuteReader();
+                dt.Load(reader);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
         }
     }
 }

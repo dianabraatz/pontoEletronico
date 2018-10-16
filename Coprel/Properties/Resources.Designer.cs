@@ -63,40 +63,9 @@ namespace Coprel.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Businessmen_Group_Employees_People_Businessteam1_Businessgroup1_Businesspeople1_512 {
+        internal static System.Drawing.Bitmap função {
             get {
-                object obj = ResourceManager.GetObject("Businessmen_Group_Employees_People_Businessteam1_Businessgroup1_Businesspeople1-5" +
-                        "12", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap users_group {
-            get {
-                object obj = ResourceManager.GetObject("users-group", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap users_group_1_ {
-            get {
-                object obj = ResourceManager.GetObject("users-group(1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap users_group_2_ {
-            get {
-                object obj = ResourceManager.GetObject("users-group(2)", resourceCulture);
+                object obj = ResourceManager.GetObject("função", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

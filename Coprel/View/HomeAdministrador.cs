@@ -21,5 +21,11 @@ namespace Coprel.View
         {
 
         }
+
+        private void btnFuncionario_Click(object sender, EventArgs e)
+        {
+            CadastrarFuncionarioView obj = new CadastrarFuncionarioView();
+            obj.Show();
+        }
     }
 }
