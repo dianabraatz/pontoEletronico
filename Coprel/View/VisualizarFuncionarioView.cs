@@ -18,16 +18,65 @@ namespace Coprel.View
         {
             InitializeComponent();
             FuncionarioController.PreencherTabela(this);
+            PreencheCBFiltro();
 
+            cbFiltro.SelectedIndex = 0;
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
             btnVisualizar.Enabled = false;
+            tfBuscar.Enabled = false;
+            btnFiltrar.Enabled = false;
+
+        }
+
+        private void PreencheCBFiltro()
+        {
+            cbFiltro.Items.Insert(0, "Selecione o filtro");
+            cbFiltro.Items.Insert(1, "Nome");
+            cbFiltro.Items.Insert(2, "Setor");
+            cbFiltro.Items.Insert(3, "Função");
         }
 
         private void btnCadastrarFuncionario_Click(object sender, EventArgs e)
         {
             CadastrarFuncionarioView obj = new CadastrarFuncionarioView();
             obj.Show();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+                FuncionarioController.ExecutarFiltro(this);
+          
+        }
+
+        private void tfBuscar_Enter(object sender, EventArgs e)
+        {
+            tfBuscar.Text = "";
+        }
+
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            FuncionarioController.PreencherTabela(this);
+        }
+
+        private void cbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFiltro.SelectedIndex != 0)
+            {
+                tfBuscar.Enabled = true;
+            }
+            else
+                tfBuscar.Enabled = false;                
+        }
+
+        private void tfBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (tfBuscar.Text != String.Empty)
+            {
+                btnFiltrar.Enabled = true;
+            }
+            else
+                btnFiltrar.Enabled = false;
         }
     }
 }

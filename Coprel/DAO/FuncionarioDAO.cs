@@ -197,6 +197,37 @@ namespace Coprel.DAO
             }
             return dataSet;
         }
+
+        public static DataSet ExecutaFiltro(string sql, string valor)
+        {
+            MessageBox.Show(sql);
+            MessageBox.Show(valor);
+
+            SqlConnection conn = new SqlConnection(strConnection);
+            SqlCommand sqlcmd = new SqlCommand(sql, conn);
+
+            sqlcmd.Parameters.AddWithValue("@valor", "%" + valor + "%");
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sqlcmd;
+
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                conn.Open();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dataSet;
+        }
     }
 }
 
