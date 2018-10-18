@@ -19,13 +19,8 @@ namespace Coprel.View
             FuncionarioController.PreencheCBFuncao(this);
             FuncionarioController.PreencheCBSetor(this);
 
-            tfNumeroRegistro.Focus();
+            tfNumeroRegistro.Select();
             tfConfirmaSenha.Enabled = false;
-        }
-
-        private void FuncionarioView_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -36,15 +31,12 @@ namespace Coprel.View
 
         private void tfSenha_Leave(object sender, EventArgs e)
         {
-            if(this.tfSenha.Text != string.Empty)
+            if (this.tfSenha.Text != string.Empty)
             {
                 tfConfirmaSenha.Enabled = true;
             }
-        }
-
-        private void tfSenha_TextChanged(object sender, EventArgs e)
-        {
-
+            else
+                tfConfirmaSenha.Enabled = false;
         }
     }
 }

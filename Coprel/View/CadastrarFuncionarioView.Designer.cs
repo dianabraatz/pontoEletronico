@@ -56,6 +56,8 @@
             this.tfDataAdmissao = new System.Windows.Forms.MaskedTextBox();
             this.tfRG = new System.Windows.Forms.MaskedTextBox();
             this.tfCPF = new System.Windows.Forms.MaskedTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -76,7 +78,8 @@
             this.tfSenha.Size = new System.Drawing.Size(267, 26);
             this.tfSenha.TabIndex = 1;
             this.tfSenha.UseSystemPasswordChar = true;
-            this.tfSenha.TextChanged += new System.EventHandler(this.tfSenha_TextChanged);
+            this.tfSenha.Click += new System.EventHandler(this.tfSenha_Leave);
+            this.tfSenha.Enter += new System.EventHandler(this.tfSenha_Leave);
             this.tfSenha.Leave += new System.EventHandler(this.tfSenha_Leave);
             // 
             // tfNumeroRegistro
@@ -283,7 +286,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 57);
+            this.label9.Location = new System.Drawing.Point(11, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(334, 31);
             this.label9.TabIndex = 31;
@@ -327,16 +330,26 @@
             this.tfCPF.Size = new System.Drawing.Size(267, 26);
             this.tfCPF.TabIndex = 35;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(1, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(641, 97);
+            this.panel1.TabIndex = 36;
+            // 
             // CadastrarFuncionarioView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(640, 599);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tfCPF);
             this.Controls.Add(this.tfRG);
             this.Controls.Add(this.tfDataAdmissao);
             this.Controls.Add(this.tfDataNascimento);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnCadastrar);
@@ -362,7 +375,8 @@
             this.Controls.Add(this.label1);
             this.Name = "CadastrarFuncionarioView";
             this.Text = "FuncionarioView";
-            this.Load += new System.EventHandler(this.FuncionarioView_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,5 +412,6 @@
         public System.Windows.Forms.MaskedTextBox tfDataAdmissao;
         public System.Windows.Forms.MaskedTextBox tfRG;
         public System.Windows.Forms.MaskedTextBox tfCPF;
+        private System.Windows.Forms.Panel panel1;
     }
 }
