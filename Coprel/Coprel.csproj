@@ -89,6 +89,12 @@
     <Compile Include="View\ConfirmacaoPontoView.Designer.cs">
       <DependentUpon>ConfirmacaoPontoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VisualizarFuncionarioView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VisualizarFuncionarioView.Designer.cs">
+      <DependentUpon>VisualizarFuncionarioView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\CadastrarFuncionarioView.resx">
       <DependentUpon>CadastrarFuncionarioView.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ConfirmacaoPontoView.resx">
       <DependentUpon>ConfirmacaoPontoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VisualizarFuncionarioView.resx">
+      <DependentUpon>VisualizarFuncionarioView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

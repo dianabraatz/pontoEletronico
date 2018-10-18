@@ -79,6 +79,7 @@
             this.tfSenha.TabIndex = 1;
             this.tfSenha.UseSystemPasswordChar = true;
             this.tfSenha.Click += new System.EventHandler(this.tfSenha_Leave);
+            this.tfSenha.TextChanged += new System.EventHandler(this.tfSenha_Leave);
             this.tfSenha.Enter += new System.EventHandler(this.tfSenha_Leave);
             this.tfSenha.Leave += new System.EventHandler(this.tfSenha_Leave);
             // 
@@ -253,10 +254,10 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(470, 534);
+            this.btnCadastrar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(461, 534);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(98, 31);
+            this.btnCadastrar.Size = new System.Drawing.Size(107, 31);
             this.btnCadastrar.TabIndex = 28;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -264,20 +265,20 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(366, 534);
+            this.btnLimpar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(348, 534);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(98, 31);
+            this.btnLimpar.Size = new System.Drawing.Size(107, 31);
             this.btnLimpar.TabIndex = 29;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(102, 534);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(98, 31);
+            this.btnVoltar.Size = new System.Drawing.Size(107, 31);
             this.btnVoltar.TabIndex = 30;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -285,10 +286,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 32);
+            this.label9.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(24, 36);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(334, 31);
+            this.label9.Size = new System.Drawing.Size(341, 32);
             this.label9.TabIndex = 31;
             this.label9.Text = "Cadastro de Funcionário";
             // 
@@ -332,7 +333,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Name = "panel1";
@@ -374,6 +375,7 @@
             this.Controls.Add(this.tfSenha);
             this.Controls.Add(this.label1);
             this.Name = "CadastrarFuncionarioView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FuncionarioView";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

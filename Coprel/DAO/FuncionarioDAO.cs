@@ -77,11 +77,11 @@ namespace Coprel.DAO
             return nivelAcesso;
         }
 
-        public Boolean CadastraFuncionario(Funcionario f)
+        public int CadastraFuncionario(Funcionario f)
         {
             String sql = "INSERT INTO funcionario ([numRegistro], [senha], [dataNascimento], [nome], [rg], [cpf], [cnh], [dataAdmissao], [ctps], [codFuncao], [codSetor]) VALUES " +
                                                  "(@numRegistro, @senha, @DataNascimento, @Nome, @RG, @CPF, @CNH, @DataAdmissao, @CTPS , @CodFuncao, @CodSetor)";
-            bool result;
+            int result;
 
             SqlConnection conn = new SqlConnection(strConnection);
             SqlCommand sqlcmd = new SqlCommand(sql, conn);
@@ -101,10 +101,10 @@ namespace Coprel.DAO
             try
             {
                 conn.Open();
-                SqlDataReader rows = sqlcmd.ExecuteReader();
 
                 //verifica se possui algum resultado na consulta
-                result = rows.Read();
+                result = sqlcmd.ExecuteNonQuery();
+                MessageBox.Show(""+result);
             }
             catch (Exception)
             {
@@ -167,6 +167,35 @@ namespace Coprel.DAO
                 conn.Close();
             }
             return dt;
+        }
+
+
+        public static DataSet PreencheTabela()
+        {
+            string sql = "SELECT f.numRegistro as 'Numero de Registro', f.nome as 'Nome do Funcionario', s.nome as Setor, fu.nome as Função, f.cpf as CPF, f.dataNascimento AS 'Data de Nascimento' " +
+                             "FROM funcionario f JOIN setor s ON f.codSetor = s.codSetor JOIN funcao fu ON f.codFuncao = fu.codFuncao;";
+
+            SqlConnection conn = new SqlConnection(strConnection);
+            SqlCommand sqlcmd = new SqlCommand(sql, conn);
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sqlcmd;
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                conn.Open();    //abre a conexao com o banco
+                adapter.Fill(dataSet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dataSet;
         }
     }
 }

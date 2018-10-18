@@ -16,7 +16,7 @@ namespace Coprel.Controller
 
         public static void VerificaUsuario(LoginView tela)
         {
-      
+
             int numRegistro = Convert.ToInt32(tela.tfNumeroRegistro.Text);
             string senha = tela.tfSenha.Text;
 
@@ -80,13 +80,13 @@ namespace Coprel.Controller
                 tela.tfNome.Focus();
                 return true;
             }
-            
+
             else if (tela.tfSenha.Text == string.Empty)
             {
                 tela.tfSenha.Focus();
                 return true;
             }
-                
+
             else if (tela.tfConfirmaSenha.Text == string.Empty)
             {
                 tela.tfConfirmaSenha.Focus();
@@ -129,10 +129,10 @@ namespace Coprel.Controller
                 return true;
             }
 
- //           else if (tela.cbFuncao.SelectedIndex == 0)
- //               return true;
- //           else if (tela.cbSetor.SelectedIndex == 0)
- //               return true;
+            //           else if (tela.cbFuncao.SelectedIndex == 0)
+            //               return true;
+            //           else if (tela.cbSetor.SelectedIndex == 0)
+            //               return true;
             else
                 return false;
         }
@@ -149,6 +149,9 @@ namespace Coprel.Controller
         {
             if (!VerificaCampos(tela))
             {
+                tela.tfCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                tela.tfRG.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
                 //OBTEM VALORES
                 int NumeroRegistro = Convert.ToInt32(tela.tfNumeroRegistro.Text);
                 string Senha = (tela.tfSenha.Text);
@@ -174,6 +177,7 @@ namespace Coprel.Controller
                     f.SetCPF(CPF);
                     f.SetRG(RG);
                     f.SetCNH(CNH);
+                    f.SetCTPS(CTPS);
                     f.SetDataAdmissao(DataAdmissao);
                     f.SetSenha(Senha);
                     f.SetSenhaConfirmacao(SenhaConfirmacao);
@@ -182,13 +186,54 @@ namespace Coprel.Controller
 
                     //EXECUTA CONSULTA
                     FuncionarioDAO obj = new FuncionarioDAO();
-                    bool resultado = obj.CadastraFuncionario(f);
+                    int resultado = obj.CadastraFuncionario(f);
+
+                    if (resultado == 1)
+                    {
+                        MessageBox.Show("Funcionário cadastrado com sucesso.");
+                    }
+                    else
+                    {
+                        DialogResult dr = MessageBox.Show("Erro ao cadastrar usuário, deseja tentar novamente?", "Erro no cadastro", MessageBoxButtons.RetryCancel);
+                        if (dr == DialogResult.Cancel)
+                        {
+                            tela.Close();
+                        }
+                    }
                 }
                 else
                     MessageBox.Show("As senhas digitadas não conferem. Repita o processo novamente.");
-            }else
+            }
+            else
                 MessageBox.Show("Preencha todos os campos para cadastrar o funcionario.");
+        }
 
+        public static void LimparCampos(CadastrarFuncionarioView tela)
+        {
+            tela.tfNumeroRegistro.Text = "";
+            tela.tfNome.Text = "";
+            tela.tfRG.Text = "";
+            tela.tfCNH.Text = "";
+            tela.tfCNH.Text = "";
+            tela.tfDataNascimento.Text = "";
+            tela.tfDataAdmissao.Text = "";
+            tela.tfCTPS.Text = "";
+            tela.tfSenha.Text = "";
+            tela.tfConfirmaSenha.Text = "";
+            tela.cbFuncao.SelectedIndex = 0;
+            tela.cbSetor.SelectedIndex = 0;
+
+            tela.tfConfirmaSenha.Enabled = false;
+            tela.btnCadastrar.Enabled = false;
+
+        }
+
+        public static void PreencherTabela(VisualizarFuncionarioView tela)
+        {
+            DataSet ds = FuncionarioDAO.PreencheTabela();
+            tela.tabela.DataSource = ds;
+            tela.tabela.DataMember = ds.Tables[0].TableName;
         }
     }
 }
+

@@ -21,6 +21,7 @@ namespace Coprel.View
 
             tfNumeroRegistro.Select();
             tfConfirmaSenha.Enabled = false;
+            btnCadastrar.Enabled = false;
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace Coprel.View
             if (this.tfSenha.Text != string.Empty)
             {
                 tfConfirmaSenha.Enabled = true;
+                btnCadastrar.Enabled = true;
             }
             else
                 tfConfirmaSenha.Enabled = false;
