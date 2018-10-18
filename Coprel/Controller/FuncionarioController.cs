@@ -231,6 +231,7 @@ namespace Coprel.Controller
         public static void PreencherTabela(VisualizarFuncionarioView tela)
         {
             DataSet ds = FuncionarioDAO.PreencheTabela();
+            ds.
             tela.tabela.DataSource = ds;
             tela.tabela.DataMember = ds.Tables[0].TableName;
         }
@@ -244,7 +245,7 @@ namespace Coprel.Controller
 
             if (filtro != 0)
             {
-                if(!String.IsNullOrEmpty(valor))
+                if (!String.IsNullOrEmpty(valor))
                 {
                     //DataSet ds;
                     switch (filtro)
@@ -265,12 +266,17 @@ namespace Coprel.Controller
                     DataSet ds = FuncionarioDAO.ExecutaFiltro(sql, valor);
                     tela.tabela.DataSource = ds;
                     tela.tabela.DataMember = ds.Tables[0].TableName;
-                }               
+                }
             }
             else
                 MessageBox.Show("Selecione algum filtro.");
         }
 
+        public static void PreencheCampos(CadastrarFuncionarioView tela, int numeroRegistro)
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            List<Funcionario> f = dao.PreencheCampos(numeroRegistro);
+        }
     }
 }
 

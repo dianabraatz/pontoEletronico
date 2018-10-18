@@ -229,6 +229,15 @@ namespace Coprel.DAO
             return dataSet;
         }
     }
+
+    public static List<Funcionario> PreencheCampos(int numeroRegistro)
+    {
+        string sql = "SELECT * FROM funcionario WHERE numREgistro = @registro;";
+
+
+
+        return f;
+    }
 }
 
 

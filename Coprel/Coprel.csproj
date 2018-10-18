@@ -63,6 +63,12 @@
     <Compile Include="View\CadastrarFuncionarioView.Designer.cs">
       <DependentUpon>CadastrarFuncionarioView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EditarFuncionarioView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditarFuncionarioView.Designer.cs">
+      <DependentUpon>EditarFuncionarioView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\HomeAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="View\CadastrarFuncionarioView.resx">
       <DependentUpon>CadastrarFuncionarioView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EditarFuncionarioView.resx">
+      <DependentUpon>EditarFuncionarioView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\HomeAdministrador.resx">
       <DependentUpon>HomeAdministrador.cs</DependentUpon>

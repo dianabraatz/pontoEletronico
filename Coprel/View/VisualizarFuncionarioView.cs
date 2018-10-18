@@ -78,5 +78,15 @@ namespace Coprel.View
             else
                 btnFiltrar.Enabled = false;
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int numeroRegistro = Convert.ToInt32(tabela.CurrentRow.Cells[0].Value.ToString());
+
+            EditarFuncionarioView obj = new EditarFuncionarioView(numeroRegistro);
+            obj.Show();
+        }
+
+        
     }
 }
