@@ -109,6 +109,7 @@ namespace Coprel.Controller
             }
             else
                 MessageBox.Show("Selecione algum filtro.");
+            MessageBox.Show("Selecione algum filtro.");
         }
     }
 }
