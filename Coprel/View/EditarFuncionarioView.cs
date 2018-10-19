@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Coprel.Controller;
 
 namespace Coprel.View
 {
@@ -15,6 +16,7 @@ namespace Coprel.View
         public EditarFuncionarioView(int numeroRegistro)
         {
             InitializeComponent();
+            FuncionarioController.PreencheCampos(this, numeroRegistro);
             //vai receber a linha inteira ou o numero de registro do funcionario
             //executa consulta no banco e altera os campos
 

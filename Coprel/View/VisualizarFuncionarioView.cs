@@ -14,6 +14,7 @@ namespace Coprel.View
 {
     public partial class VisualizarFuncionarioView : Form
     {
+        int numeroRegistro = 0;
         public VisualizarFuncionarioView()
         {
             InitializeComponent();
@@ -35,12 +36,6 @@ namespace Coprel.View
             cbFiltro.Items.Insert(1, "Nome");
             cbFiltro.Items.Insert(2, "Setor");
             cbFiltro.Items.Insert(3, "Função");
-        }
-
-        private void btnCadastrarFuncionario_Click(object sender, EventArgs e)
-        {
-            CadastrarFuncionarioView obj = new CadastrarFuncionarioView();
-            obj.Show();
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
@@ -87,6 +82,20 @@ namespace Coprel.View
             obj.Show();
         }
 
-        
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            EditarFuncionarioView obj = new EditarFuncionarioView(numeroRegistro);
+        }
+
+        private void btnCadastrarFuncionario_Click_1(object sender, EventArgs e)
+        {
+            CadastrarFuncionarioView obj = new CadastrarFuncionarioView();
+            obj.Show();
+        }
+
+        private void tabela_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
