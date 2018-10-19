@@ -48,10 +48,13 @@
   <ItemGroup>
     <Compile Include="Controller\FuncionarioController.cs" />
     <Compile Include="Controller\PontoController.cs" />
+    <Compile Include="Controller\SetorController.cs" />
     <Compile Include="DAO\PontoDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
+    <Compile Include="DAO\SetorDAO.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Ponto.cs" />
+    <Compile Include="Model\Setor.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
