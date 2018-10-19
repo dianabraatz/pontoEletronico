@@ -27,5 +27,10 @@ namespace Coprel.View
             VisualizarFuncionarioView obj = new VisualizarFuncionarioView();
             obj.Show();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

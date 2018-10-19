@@ -13,7 +13,7 @@ namespace Coprel.DAO
     class FuncionarioDAO
     {
 
-        static string strConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Charlan\Desktop\bdponto.mdf';Integrated Security=True;Connect Timeout=30";
+        static string strConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Administrador\Desktop\bdponto.mdf';Integrated Security=True;Connect Timeout=30";
 
         public Boolean verificaLogin(Funcionario f)
         {
@@ -104,7 +104,7 @@ namespace Coprel.DAO
 
                 //verifica se possui algum resultado na consulta
                 result = sqlcmd.ExecuteNonQuery();
-                MessageBox.Show(""+result);
+                MessageBox.Show("" + result);
             }
             catch (Exception)
             {
@@ -228,15 +228,50 @@ namespace Coprel.DAO
             }
             return dataSet;
         }
-    }
 
-    public static List<Funcionario> PreencheCampos(int numeroRegistro)
-    {
-        string sql = "SELECT * FROM funcionario WHERE numREgistro = @registro;";
+        public List<Funcionario> PreencheCampos(int numeroRegistro)
+        {
+            string sql = "SELECT * FROM funcionario WHERE numREgistro = @registro;";
 
+            SqlConnection conn = new SqlConnection(strConnection);
+            SqlCommand sqlcmd = new SqlCommand(sql, conn);
+            List<Funcionario> lista = new List<Funcionario>();
 
+            sqlcmd.Parameters.AddWithValue("@registro", numeroRegistro);
 
-        return f;
+            try
+            {
+                conn.Open();
+                SqlDataReader result = sqlcmd.ExecuteReader();
+
+                while (result.Read())
+                {
+                    Funcionario f = new Funcionario();
+                    f.SetNumeroRegistro(Convert.ToInt32(result["numRegistro"]));
+                    f.SetNome(Convert.ToString(result["nome"]));
+                    f.SetCPF(Convert.ToString(result["cpf"]));
+                    f.SetCNH(Convert.ToString(result["cnh"]));
+                    f.SetCodFuncao(Convert.ToInt32(result["codFuncao"]));
+                    f.SetCodSetor(Convert.ToInt32(result["codSetor"]));
+                    f.SetCTPS(Convert.ToString(result["ctps"]));
+                    f.SetDataAdmissao(Convert.ToDateTime(result["dataAdmissao"]));
+                    f.SetDataNascimento(Convert.ToDateTime(result["dataNascimento"]));
+                    f.SetRG(Convert.ToString(result["rg"]));
+
+                    lista.Add(f);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return lista;
+        
+        }
     }
 }
 

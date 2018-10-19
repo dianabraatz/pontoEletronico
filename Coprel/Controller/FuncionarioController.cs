@@ -231,7 +231,6 @@ namespace Coprel.Controller
         public static void PreencherTabela(VisualizarFuncionarioView tela)
         {
             DataSet ds = FuncionarioDAO.PreencheTabela();
-            ds.
             tela.tabela.DataSource = ds;
             tela.tabela.DataMember = ds.Tables[0].TableName;
         }
@@ -272,10 +271,22 @@ namespace Coprel.Controller
                 MessageBox.Show("Selecione algum filtro.");
         }
 
-        public static void PreencheCampos(CadastrarFuncionarioView tela, int numeroRegistro)
+        public static void PreencheCampos(EditarFuncionarioView tela, int numeroRegistro)
         {
             FuncionarioDAO dao = new FuncionarioDAO();
-            List<Funcionario> f = dao.PreencheCampos(numeroRegistro);
+            List<Funcionario> obj = dao.PreencheCampos(numeroRegistro);
+
+            tela.tfNome.Text = Convert.ToString(obj.ElementAt(1));
+            tela.tfCNH.Text = Convert.ToString(3);
+            tela.tfCPF.Text = Convert.ToString(2);
+            tela.tfCTPS.Text = Convert.ToString(6);
+            tela.tfDataAdmissao.Text = Convert.ToString(7);
+            tela.tfDataNascimento.Text = Convert.ToString(8);
+            tela.tfNumeroRegistro.Text = Convert.ToString(0);
+            tela.tfRG.Text = Convert.ToString(9);
+            tela.cbFuncao.SelectedIndex = Convert.ToInt32(obj.ElementAt(4));
+            tela.cbSetor.SelectedIndex = Convert.ToInt32(obj.ElementAt(5));
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Coprel.DAO
 {
     class PontoDAO
     {
-        static string strConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Charlan\Desktop\bdponto.mdf';Integrated Security=True;Connect Timeout=30";
+        static string strConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\Administrador\Desktop\bdponto.mdf';Integrated Security=True;Connect Timeout=30";
 
         public int VerificaPonto(int numRegistro)
         {
